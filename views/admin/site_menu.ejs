@@ -1,0 +1,282 @@
+<!--header-->
+<%- include('includes/header') %> 
+<div class="row">
+<!--sidebar-->
+<%- include('includes/sidebar') %> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+<body>
+
+
+<!--For customer tabs view-->
+<style>
+
+#customer_addedit .tabs-left, #customer_addedit .tabs-right {
+  border-bottom: none;
+  padding-top: 2px;
+}
+#customer_addedit .tabs-left {
+  border-right: 1px solid #ddd;
+}
+#customer_addedit .tabs-right {
+  border-left: 1px solid #ddd;
+}
+#customer_addedit .tabs-left>li, #customer_addedit .tabs-right>li {
+  float: none;
+  margin-bottom: 2px;
+}
+#customer_addedit .tabs-left>li {
+  width: 100%;
+  margin-right: -1px;
+}
+#customer_addedit .tabs-right>li {
+  margin-left: -1px;
+}
+#customer_addedit .tabs-left>li.active>a,
+#customer_addedit .tabs-left>li.active>a:hover,
+#customer_addedit .tabs-left>li.active>a:focus {
+  border-bottom-color: #ddd;
+  border-right-color: transparent;
+}
+
+#customer_addedit .tabs-right>li.active>a,
+#customer_addedit .tabs-right>li.active>a:hover,
+#customer_addedit .tabs-right>li.active>a:focus {
+  border-bottom: 1px solid #ddd;
+  border-left-color: transparent;
+}
+#customer_addedit .tabs-left>li>a {
+  border-radius: 4px 0 0 4px;
+  margin-right: 0;
+  display:block;
+}
+#customer_addedit .tabs-right>li>a {
+  border-radius: 0 4px 4px 0;
+  margin-right: 0;
+}
+#customer_addedit .vertical-text {
+  margin-top:50px;
+  border: none;
+  position: relative;
+}
+#customer_addedit .vertical-text>li {
+  height: 20px;
+  width: 120px;
+  margin-bottom: 100px;
+}
+#customer_addedit .vertical-text>li>a {
+  border-bottom: 1px solid #ddd;
+  border-right-color: transparent;
+  text-align: center;
+  border-radius: 4px 4px 0px 0px;
+}
+#customer_addedit .vertical-text>li.active>a,
+#customer_addedit .vertical-text>li.active>a:hover,
+#customer_addedit .vertical-text>li.active>a:focus {
+  border-bottom-color: transparent;
+  border-right-color: #ddd;
+  border-left-color: #ddd;
+}
+#customer_addedit .vertical-text.tabs-left {
+  left: -50px;
+}
+#customer_addedit .vertical-text.tabs-right {
+  right: -50px;
+}
+#customer_addedit .vertical-text.tabs-right>li {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#customer_addedit .vertical-text.tabs-left>li {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+</style>
+<style>
+.menu_waraper{
+    height: calc(100% - 100px);
+}
+</style>
+<div class="left_sidebar">
+    <div class="sidebar_overlay"></div>
+    
+    <div class="menu_waraper scrollbar" id="scrollbar1">
+       
+    </div>
+</div>    
+
+<style>
+    .addimg{
+    padding: 10px;
+    float: right;
+    font-size: 15px;
+    background: #eee7e7;
+    border-radius: 10px;
+   
+  }
+</style>   
+<div class="content_wraper">
+    <div class="main_container">
+         <div class="header_wraper">
+              <h2>Banner List</h2>
+             
+          </div>
+  
+      <div class="content_body">
+          <div class="table_heading mb-5">
+          <h3>Banner List</h3>
+
+          <div class="mt-3">
+            <div class="float-left">
+                <span style="font-size: 16px;">Showing </span>
+                <select onchange="location = this.value" style="height: 25px; width: 60px;">
+                  <option value="1?pagesize=10" selected  >10</option>
+                  <option value="1?pagesize=25" >25</option>
+                  <option value="1?pagesize=50" >50</option>
+                  <option value="1?pagesize=100" >100</option>
+                </select> 
+                <span style="font-size: 16px;"> entries </span>        
+            </div>
+            <div class="mt-2" style="float: right;"> 
+              <div class="mt" >
+                  
+                <button type="submit" class="add_service_but" onclick="add()">+add_site_menu</button>
+             </div>
+            <form action="/admin/site_menu" method="post">
+             
+
+            
+          </div>
+    
+            
+         </div>
+      </div>
+
+      <div class="table-responsive table_wraper">
+      </form>
+      <table class="table product_list025">
+          <thead>
+            
+              <tr style="cursor: pointer;">
+                
+                    <th data-column="id" data-order="DESC" class="text-center theading">No <i class="fa fa-sort fa-lg text-success"></i></th>
+                
+
+                
+                    <th data-column="phone" data-order="DESC" class="theading">Phone <i class="fa fa-sort fa-lg"></i> </th>
+                    <th data-column="email" data-order="DESC" class="theading">Email <i class="fa fa-sort fa-lg"></i> </th>
+                    <th data-column="address" data-order="DESC" class="theading">Address <i class="fa fa-sort fa-lg"></i> </th>
+                    <th data-column="fb" data-order="DESC" class="theading">FB <i class="fa fa-sort fa-lg"></i> </th>
+                    <th data-column="tw" data-order="DESC" class="theading">TW <i class="fa fa-sort fa-lg"></i> </th>
+                    <th data-column="insta" data-order="DESC" class="theading">Insta <i class="fa fa-sort fa-lg"></i> </th>
+
+
+
+                    <th data-column="image" data-order="DESC" class="theading">Logo <i class="fa fa-sort fa-lg"></i> </th>
+                    <!-- <th data-column="image" data-order="DESC" class="theading">Favicon <i class="fa fa-sort fa-lg"></i> </th> -->
+                
+                
+
+                
+
+                
+                    
+                
+                 
+                <th class="text-center">Action</th>
+              </tr>
+             
+          </thead>
+      <tbody>
+        
+        <% for(var i = 0; i< result1.length; i++){ %>
+          <tr>
+            <td scope="row"><%= i+1 %></td>
+            <!-- <td><%= result1[i].id %></td> -->
+            <td><%= result1[i].phone %></td>
+            <td><%= result1[i].email %></td>
+            <td><%= result1[i].address %></td>
+            <td><%= result1[i].fb %></td>
+            <td><%= result1[i].tw %></td>
+            <td><%= result1[i].insta %></td>
+            <td>
+              <img height="50px" width="50px" src="/Public/assets/upload/<%=result1[i].logo %>" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+              
+            </td>
+            <!-- <td>
+                <img height="50px" width="50px" src="/Public/assets/upload/<%=result1[i].favicon %>" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                
+              </td> -->
+            
+            
+            <td>
+              <a href="/admin/display_site_menu/<%= result1[i].id %>"><i class="fa fa-eye text-success" aria-hidden="true"></i></a>
+              <a href="/admin/delete_site_menu/<%= result1[i].id %>"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+              <a href="/users/edit/<%= result1[i].id %>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              
+            </td>
+          </tr>
+          <% }%>
+          
+          </tbody>
+          </table>
+       
+
+            
+            <div class="pagination_sec">
+                <div class="table_info">Showing 1 to 6  of 6 entries</div> 
+            
+                <ul>
+                <li><a class="disable" onclick="prev">Prev</a></li>
+                </ul>
+            
+            
+                <ul>
+                
+                <li class="active" onclick="">1</li>
+                
+                </ul>
+            
+            
+                <ul>
+                <li><a class="disable">Next</a></li>
+                </ul>
+            
+            </div>
+            
+          
+         </div>
+      </div>
+  </div>
+  </div>
+
+</body>
+<!-- add img  -->
+<script>
+  function add() {
+    window.open("http://localhost:8000/admin/add_site_menu");
+  }
+ 
+</script>
+
+
+
+</html>
+
+
+            
+</div>
+
+
+
+<!--footer-->
+<%- include('includes/footer') %> 

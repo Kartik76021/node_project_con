@@ -1,0 +1,114 @@
+<!--header-->
+<%- include('includes/header') %> 
+<div class="row">
+
+<!--sidebar-->
+<%- include('includes/sidebar') %>
+
+
+<div class="col-lg-9">
+    <h1 class="text-center">Are you sure deleted?</h1>
+    <div class="row p-3">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <% if(msg!="") {%>
+            <div class="alert alert-primary" role="alert">
+                <strong><%= msg %></strong>
+            </div>
+            <% }%>
+             
+        <form action="/admin/site_menu" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                
+              	
+                <!-- <div class="form-group">
+                    <label for="">Id</label>
+                    <input type="number" required
+                        class="form-control" name="id" id="" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">*</small>
+                    </div> -->
+                    
+                    <div class="form-group">
+                        <label for="">phone</label>
+                        <input type="number" required
+                            class="form-control" name="phone" id="" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">*</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="">email</label>
+                          <input type="email" required
+                              class="form-control" name="email" id="" aria-describedby="helpId" placeholder="">
+                          <small id="helpId" class="form-text text-muted">*</small>
+                          </div>
+                          <div class="form-group">
+                            <label for="">address</label>
+                            <input type="address" required
+                                class="form-control" name="address" id="" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">*</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">fb</label>
+                                <input type="fb" required
+                                    class="form-control" name="fb" id="" aria-describedby="helpId" placeholder="">
+                                <small id="helpId" class="form-text text-muted">*</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">tw</label>
+                                    <input type="tw" required
+                                        class="form-control" name="tw" id="" aria-describedby="helpId" placeholder="">
+                                    <small id="helpId" class="form-text text-muted">*</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">insta</label>
+                                        <input type="insta" required
+                                            class="form-control" name="insta" id="" aria-describedby="helpId" placeholder="">
+                                        <small id="helpId" class="form-text text-muted">*</small>
+                                        </div>
+                    
+                        <div class="col-sm-6 mb-5">
+                            <div class="animate_form field">
+                              <label>Logo</label>
+                              <input type="file" class="form-control" id="logo" name="logo" accept="image/*" onchange="preView()"  />
+                              <input type="hidden" name="update_image" value="" />
+                              <div class="upload_img01">
+                                
+                                  <inm src=""/>
+                              </div>
+                            </div>
+                          </div> 
+                          <!-- <div class="col-sm-6 mb-5">
+                            <div class="animate_form field">
+                              <label>Favicon</label>
+                              <input type="file" class="form-control" id="favicon" name="favicon" accept="image/*" onchange="preView()"  />
+                              <input type="hidden" name="update_image" value="" />
+                              <div class="upload_img01">
+                                
+                                  <inm src=""/>
+                              </div>
+                            </div>
+                          </div>  -->
+                     
+                          <tr><td><td>
+                            <a href="/admin/delete9/<%= result1[0].id %>" > <input type="button" value="yes"/></a>
+                            <a href="/admin/site_menu"> <input type="button" value="no"/></a>
+                        </td></tr>  
+                       
+        
+        </form>
+    </div>   
+    </div>
+
+
+</div>
+
+
+</div>
+<!-- <script>
+    function add() {
+      window.open("http://localhost:8000/admin/site_menu/");
+    }
+   
+  </script> -->
+
+<!--footer-->
+<%- include('includes/footer') %> 

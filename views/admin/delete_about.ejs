@@ -1,0 +1,89 @@
+<!--header-->
+<%- include('includes/header') %> 
+<div class="row">
+
+<!--sidebar-->
+<%- include('includes/sidebar') %>
+
+
+<div class="col-lg-9">
+    <h1 class="text-center">are you sure?</h1>
+    <div class="row p-3">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <!-- <% if(msg!="") {%> -->
+            <div class="alert alert-primary" role="alert">
+                <strong><%= msg %></strong>
+            </div>
+            <!-- <% }%> -->
+             
+        <form action="/admin/about" method="post">
+            <div class="form-group">
+                
+              	
+                <div class="form-group">
+                    <!-- <label for="">Id</label>
+                    <input type="number" required
+                        class="form-control" name="id" id="" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">*</small>
+                    </div> -->
+                    <label for="">Id</label>
+                    <input type="text" required
+                        class="form-control" name="id" id="" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">*</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Heading</label>
+                        <input type="text" required
+                            class="form-control" name="heading" id="" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">*</small>
+                        </div>
+                    <div class="form-group">
+                        <label for="">Descption</label>
+                        <input type="text" required
+                            class="form-control" name="description" id="" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">*</small>
+                        </div>
+                    
+                        
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            <input type="status" required
+                                class="form-control" name="status" id="" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">*</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">add_date</label>
+                                <input type="date" required
+                                    class="form-control" name="added_date" id="" aria-describedby="helpId" placeholder="">
+                                <small id="helpId" class="form-text text-muted">*</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Modified_Date</label>
+                                    <input type="date" required
+                                        class="form-control" name="modify_date" id="" aria-describedby="helpId" placeholder="">
+                                    <small id="helpId" class="form-text text-muted">*</small>
+                                    </div>
+                                    <tr><td><td>
+                                        <a href="/admin/delete2/<%= result1[0].id %>" > <input type="button" value="yes"/></a>
+                                        <a href="/admin/about"> <input type="button" value="no"/></a>
+                                    </td></tr>               
+
+        </form>
+    </div>   
+    </div>
+
+
+</div>
+
+
+</div>
+<!-- <script>
+    function add() {
+      window.open("http://localhost:8000/admin/about/");
+    }
+   
+  </script> -->
+
+<!--footer-->
+<%- include('includes/footer') %> 

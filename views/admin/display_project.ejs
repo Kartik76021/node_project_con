@@ -1,0 +1,91 @@
+<!--header-->
+<%- include('includes/header') %> 
+<div class="row">
+
+<!--sidebar-->
+<%- include('includes/sidebar') %>
+
+
+<div class="col-lg-9">
+    <h1 class="text-center">Add_Project</h1>
+    <div class="row p-3">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <% if(msg!="") {%>
+            <div class="alert alert-primary" role="alert">
+                <strong><%= msg %></strong>
+            </div>
+            <% }%>
+             
+        <form action="/admin/project" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                
+              	
+                <div class="form-group">
+                    <label for="">Id</label>
+                    <input type="number" readonly value="<%= result1[0].id %>"
+                        class="form-control" name="id" id="" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">*</small>
+                    </div>
+                    <label for="">Name</label>
+                    <input type="text" readonly value="<%= result1[0].name %>"
+                        class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">*</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category_id</label>
+                        <input type="text" readonly value="<%= result1[0].category_id %>"
+                            class="form-control" name="category_id" id="" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">*</small>
+                        </div>
+                    
+                        <div class="col-sm-6 mb-5">
+                            <div class="animate_form field">
+                              <label>Image</label>
+                              <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="preView()"  />
+                              <input type="hidden" name="update_image" value="" />
+                              <div class="upload_img01">
+                                
+                                  <inm src=""/>
+                              </div>
+                            </div>
+                          </div> 
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            <input type="status" readonly value="<%= result1[0].status %>"
+                                class="form-control" name="status" id="" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">*</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">add_date</label>
+                                <input type="date" readonly value="<%= result1[0].added_date %>"
+                                    class="form-control" name="added_date" id="" aria-describedby="helpId" placeholder="">
+                                <small id="helpId" class="form-text text-muted">*</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Modified_Date</label>
+                                    <input type="date" readonly value="<%= result1[0].modify_date %>"
+                                        class="form-control" name="modify_date" id="" aria-describedby="helpId" placeholder="">
+                                    <small id="helpId" class="form-text text-muted">*</small>
+                                    </div>
+                                   
+
+                        
+                       
+                       
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-primary" onclick="add()">Back</button>
+        
+        </form>
+    </div>   
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+<!--footer-->
+<%- include('includes/footer') %> 

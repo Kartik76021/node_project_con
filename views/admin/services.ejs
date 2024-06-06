@@ -1,0 +1,115 @@
+<!--header-->
+<%- include('includes/header') %> 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<div class="row">
+    <style>
+       .mt{
+        height: 20px;
+        width: 30px;
+        float: right;
+        display: block;
+       }
+
+        .heading{
+            color:white;
+        }
+        .add_service_but{
+            color:#f3f5f3;
+            background-color: rgb(24, 26, 26);
+            border-radius:20%;
+           font-size: x-large;
+           
+        }
+
+      
+    </style>
+<!--sidebar-->
+<%- include('includes/sidebar') %>
+ 
+
+        <div class="col-lg-9">
+            
+            <div class="row p-3">
+                <div class="mt" >
+                  
+                    <button type="submit" class="add_service_but" onclick="add()">+add_services</button>
+                 </div>
+                <form action="/admin/services" method="post" style="float:left; margin-left: 75%; margin-bottom: 4px;">
+                    <!-- <input type="text" id="myInput" name="s1" placeholder= "sarching your name"/> -->
+                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                    <input type="submit" value="search"/>
+                 </form>
+                
+                
+               <table class="table">
+                <thead class="bg-primary">
+                  <tr class="heading">
+                      <th>Sl No</th>
+                      <th>Name </th>
+                      <th>Description</th>
+                      <th>Icon</th>
+                      
+                      <th>Status </th>
+                      <th>Add_Date</th>
+                      <th>Modified_Date</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+                <tbody id="myTable">
+                  <% for(var i = 0; i< result1.length; i++){ %>
+                    <tr>
+                        <td scope="row"><%= i+1 %></td>
+                        
+                        <td><%= result1[i].name %></td>
+                        <td><%= result1[i].description %> </td>
+                        <td>
+                          <img height="50px" width="50px" src="/Public/assets/upload/<%=result1[i].icon %>" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                          
+                        </td>
+                        <td><% if(result1[i].status==1){ %>
+                            <a href="/admin/status/<%= result1[i].id %>/0"><span class="badge badge-success">Active</span></a>
+                          <% } else{ %>
+                            <a href="/admin/status/<%= result1[i].id %>/1"><span class="badge badge-danger">InActive</span></a>
+                          <% } %>
+                        </td>
+                        <td><%= result1[i].added_date %> </td>
+                        <td><%= result1[i].modified_date %> </td>
+                          
+                        <td>
+                          <a href="/admin/display_srvices/<%= result1[i].id %>"><i class="fa fa-eye text-success" aria-hidden="true"></i></a>
+                          <a href="/admin/delete/<%= result1[i].id %>"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+                          <a href="/users/edit/<%= result1[i].id %>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                          
+                        </td>
+                    </tr>
+                    <% }%>
+                </tbody>
+          
+               </table>
+          
+            </div>
+        </div>
+      </div>
+     
+      <script>
+        function add() {
+          window.open("http://localhost:8000/admin/add_services/");
+        }
+       
+      </script>
+      <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
+
+
+<!--footer-->
+<%- include('includes/footer') %> 
